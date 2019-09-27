@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    db:
+      image: postgres
+      networks:
+        - zupnet
+      environment:
+        - POSTGRES_USER=zupdb
+        - POSTGRES_PASSWORD=zupdb
+      volumes:
+        - postgresql:/var/lib/postgresql
+        - postgresql_data:/var/lib/postgresql/data
+      ports:
+        - 9090:5432
+
+networks:
+    zupnet:
+      driver: bridge
+
+volumes:
+    postgresql:
+    postgresql_data:
