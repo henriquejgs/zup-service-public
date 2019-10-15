@@ -1,23 +1,9 @@
 package br.com.zupservice.model;
 
+import lombok.*;
+
+import javax.persistence.*;
 import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Getter
@@ -44,10 +30,8 @@ public class Address {
 
     @Column(nullable = false)
     private String country;
-    
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="ADDRESS_ID")
-    private Set<Address> address;
 
+    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+    private Set<Client> client;
 
 }
