@@ -1,4 +1,4 @@
-package br.com.zupservice.security;
+package br.com.zupservice.service.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -22,13 +22,13 @@ public class ZupSecurity extends WebSecurityConfigurerAdapter {
         auth.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/clients/**").hasAnyRole("USER")
-                .antMatchers(HttpMethod.GET, "/address/**").hasAnyRole("USER")
-                .antMatchers(HttpMethod.POST, "/clients").hasAnyRole("USER")
-                .antMatchers(HttpMethod.POST, "/address").hasAnyRole("USER")
-                .antMatchers(HttpMethod.PUT, "/clients/**").hasAnyRole("SUPERUSER")
-                .antMatchers(HttpMethod.PUT, "/address/**").hasAnyRole("SUPERUSER")
-                .antMatchers(HttpMethod.DELETE, "/clients/**").hasAnyRole("SUPERUSER")
-                .antMatchers(HttpMethod.DELETE, "/address/**").hasAnyRole("SUPERUSER");
+                .antMatchers(HttpMethod.GET, "/**").hasAnyRole("USER")
+                .antMatchers(HttpMethod.POST, "/").hasAnyRole("USER")
+                .antMatchers(HttpMethod.PUT, "/**").hasAnyRole("SUPERUSER")
+                .antMatchers(HttpMethod.PATCH, "/**").hasAnyRole("SUPERUSER")
+                .antMatchers(HttpMethod.DELETE, "/**").hasAnyRole("SUPERUSER")
+                .and()
+                .csrf().disable()
+                .formLogin().disable();
     }
 }
