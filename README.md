@@ -13,6 +13,13 @@ Para importar a  aplicação no Intellij você precisará de um pluggin do lombo
 
 Para carregar a imagem do postgres execute o docker-compose up
 
+JSON for insert
+{"name":"Denise","cpf":"001.100.001-11","birthDay":"1895-12-25","address":{"street":"Rua","zipCode":"13025-400","region":"MG","country":"EUA"}}
+
+
+JSON for update
+{"id": <PUT ID HERE >,"name":"Mariana","cpf":"001.100.001-12","birthDay":"1895-12-25","address":{"street":"Rua","zipCode":"13025-400","region":"MG","country":"Malasia"}}
+
 
 
 
